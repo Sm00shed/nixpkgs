@@ -395,7 +395,7 @@ let
         # The canonical name for this attribute is darwinSdkVersion, but some
         # platforms define the old name "sdkVer".
         darwinSdkVersion = final.sdkVer or "14.4";
-        darwinMinVersion = "14.0";
+        darwinMinVersion = "15.4";
         darwinMinVersionVariable =
           if final.isMacOS then
             "MACOSX_DEPLOYMENT_TARGET"
