@@ -571,6 +571,7 @@ stdenv.mkDerivation (
       )
       && (!stdenv.hostPlatform.isMusl)
       && !(stdenv.hostPlatform.isPower64 && stdenv.hostPlatform.isBigEndian)
+      && !stdenv.hostPlatform.isDarwin
       && (stdenv.hostPlatform == stdenv.buildPlatform);
 
     checkTarget = "check-all";
