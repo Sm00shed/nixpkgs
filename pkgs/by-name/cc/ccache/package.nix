@@ -83,7 +83,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   cmakeFlags = lib.optional (!finalAttrs.finalPackage.doCheck) "-DENABLE_TESTING=OFF";
 
-  doCheck = !stdenv.hostPlatform.isDarwin;
+  doCheck = true;
 
   nativeCheckInputs = [
     # test/run requires the compgen function which is available in
@@ -106,6 +106,8 @@ stdenv.mkDerivation (finalAttrs: {
     "test.basedir"
     "test.multi_arch"
     "test.nocpp2"
+    "test.debug_compilation_dir"
+    "test.debug_prefix_map"
   ];
 
   passthru = {
