@@ -115,6 +115,9 @@ stdenv.mkDerivation (finalAttrs: {
     "-Dcairo=disabled"
     "-Dgtk_doc=${lib.boolToString (stdenv.hostPlatform == stdenv.buildPlatform)}"
   ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [
+    "-Dtests=false"
+  ]
   ++ lib.optionals (!stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
     "-Dgi_cross_ldd_wrapper=${
       replaceVarsWith {
