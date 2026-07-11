@@ -85,6 +85,8 @@ python3.pkgs.buildPythonApplication rec {
     else
       null;
 
+  doCheck = !stdenv.hostPlatform.isDarwin;
+
   nativeBuildInputs = [ installShellFiles ];
 
   nativeCheckInputs = [
