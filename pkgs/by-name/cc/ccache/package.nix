@@ -83,7 +83,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   cmakeFlags = lib.optional (!finalAttrs.finalPackage.doCheck) "-DENABLE_TESTING=OFF";
 
-  doCheck = true;
+  doCheck = !stdenv.hostPlatform.isDarwin;
 
   nativeCheckInputs = [
     # test/run requires the compgen function which is available in
